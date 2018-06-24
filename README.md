@@ -6,6 +6,6 @@ This is a collection of source codes implementing a solution to homework tasks g
 | Source Folder | Topic                                                           |
 |---------------|-----------------------------------------------------------------|
 | project1      | Propositinal Learning                                           |
-| project2      | Baysian Networks                                                |
+| project2      | Bayesian Networks                                                |
 | project3      | Inductive Logical Programming (learning propositional formulas) |
 | project4      | Reinforcement Learning (SARSA, Q-learning)                      |
