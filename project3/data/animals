@@ -1,0 +1,4 @@
++ !spieces(tim,dog),voice(tim,bark)
++ !spieces(nymeria,direwolf),voice(nymeria,bark)
++ !spieces(milka,cow),voice(milka,bu)
++ !spieces(f(milka),cow),voice(f(milka),bu)

@@ -1,0 +1,69 @@
+network unknown {
+}
+variable AvgSpeed {
+    type discrete [ 2 ] { AvgSpeed_0, AvgSpeed_1 };
+}
+variable Country {
+    type discrete [ 3 ] { Country_0, Country_1, Country_2 };
+    property weight = None ;
+}
+variable DangerLvl {
+    type discrete [ 2 ] { DangerLvl_0, DangerLvl_1 };
+}
+variable NoAccidents {
+    type discrete [ 3 ] { NoAccidents_0, NoAccidents_1, NoAccidents_2 };
+}
+variable NoFatalities {
+    type discrete [ 3 ] { NoFatalities_0, NoFatalities_1, NoFatalities_2 };
+}
+variable NoJourneys {
+    type discrete [ 2 ] { NoJourneys_0, NoJourneys_1 };
+}
+variable PoliceActivity {
+    type discrete [ 2 ] { PoliceActivity_0, PoliceActivity_1 };
+}
+variable RoadCond {
+    type discrete [ 2 ] { RoadCond_0, RoadCond_1 };
+}
+variable Season {
+    type discrete [ 4 ] { Season_0, Season_1, Season_2, Season_3 };
+}
+variable Weather {
+    type discrete [ 2 ] { Weather_0, Weather_1 };
+}
+variable Weekend {
+    type discrete [ 3 ] { Weekend_0, Weekend_1, Weekend_2 };
+}
+probability ( AvgSpeed | RoadCond ) {
+    table 0.761944853715, 0.389407506192, 0.238055146285, 0.610592493808 ;
+}
+probability ( Country ) {
+    table 0.2917, 0.1916, 0.5167 ;
+}
+probability ( DangerLvl | AvgSpeed, RoadCond ) {
+    table 0.97817679558, 0.985812133072, 0.735632183908, 0.955070202808, 0.0218232044199, 0.0141878669276, 0.264367816092, 0.0449297971919 ;
+}
+probability ( NoAccidents | DangerLvl, NoJourneys ) {
+    table 0.725531914894, 0.516518328556, 0.435233160622, 0.117318435754, 0.178723404255, 0.338663448484, 0.347150259067, 0.198324022346, 0.0957446808511, 0.14481822296, 0.217616580311, 0.684357541899 ;
+}
+probability ( NoFatalities | DangerLvl, NoAccidents ) {
+    table 0.73747714808, 0.393233903238, 0.126829268293, 0.634920634921, 0.282608695652, 0.121951219512, 0.222851919561, 0.314296107676, 0.365853658537, 0.198412698413, 0.253623188406, 0.198606271777, 0.0396709323583, 0.292469989087, 0.507317073171, 0.166666666667, 0.463768115942, 0.679442508711 ;
+}
+probability ( NoJourneys | Season, Weather, Weekend ) {
+    table 0.429452054795, 0.559139784946, 0.479674796748, 0.291545189504, 0.375939849624, 0.36, 0.388955582233, 0.505119453925, 0.612903225806, 0.194341943419, 0.22641509434, 0.316455696203, 0.324444444444, 0.401869158879, 0.260869565217, 0.108038585209, 0.155778894472, 0.162601626016, 0.418566775244, 0.454545454545, 0.5, 0.199170124481, 0.22192513369, 0.241379310345, 0.570547945205, 0.440860215054, 0.520325203252, 0.708454810496, 0.624060150376, 0.64, 0.611044417767, 0.494880546075, 0.387096774194, 0.805658056581, 0.77358490566, 0.683544303797, 0.675555555556, 0.598130841121, 0.739130434783, 0.891961414791, 0.844221105528, 0.837398373984, 0.581433224756, 0.545454545455, 0.5, 0.800829875519, 0.77807486631, 0.758620689655 ;
+}
+probability ( PoliceActivity | AvgSpeed ) {
+    table 0.93520480226, 0.960793357934, 0.0647951977401, 0.0392066420664 ;
+}
+probability ( RoadCond | Season, Weather ) {
+    table 0.906118636151, 0.255489021956, 0.794612794613, 0.200826446281, 0.721126760563, 0.105934065934, 0.847513812155, 0.162807017544, 0.0938813638487, 0.744510978044, 0.205387205387, 0.799173553719, 0.278873239437, 0.894065934066, 0.152486187845, 0.837192982456 ;
+}
+probability ( Season ) {
+    table 0.2642, 0.2398, 0.263, 0.233 ;
+}
+probability ( Weather | Season ) {
+    table 0.810370931113, 0.495412844037, 0.134980988593, 0.388412017167, 0.189629068887, 0.504587155963, 0.865019011407, 0.611587982833 ;
+}
+probability ( Weekend ) {
+    table 0.6807, 0.2611, 0.0582 ;
+}
